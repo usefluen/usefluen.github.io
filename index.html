@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FLUEN — Grammar AI in 127 languages</title>
+<meta name="description" content="Paste your writing. Get it fixed instantly. Works in 127 languages, privately on your device. Try free — no account needed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://js.stripe.com/v3/"></script>
+or: var(--ink);
+}
+.tb-btn-teal {
+  background: var(--teal); color: #fff;
+  border-color: var(--teal);
+}
+.tb-btn-teal:hover {
+  background: var(--teal2);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 12px rgba(13,115,119,.25);
+}
+
+/* ─────────────────────────────────────────────
+   MAIN EDITOR LAYOUT
+───────────────────────────────────────────── */
+#app {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  grid-template-rows: calc(100vh - 52px);
+  margin-top: 52px;
+  height: calc(100vh - 52px);
+}
+
+/* ── Left: writing area ── */
+#writing-panel {
+  display: flex; flex-direction: column;
+  border-right: 1px solid var(--line);
+  overflow: hidden;
+}
+
+#editor-header {
+  padding: 20px 32px 16px;
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.eh-left { display: flex; flex-direction: column; gap: 3px; }
+.eh-title {
+  font-family: var(--serif); font-size: 15px;
+  color: var(--ink2); font-style: italic;
+}
+.eh-meta {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--ink5); display: flex; gap: 12px;
+}
+
+.check-wrap { display: flex; align-items: center; gap: 8px; }
+.kbhint {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--ink5); display: flex; gap: 3px; align-items: center;
+}
+.kbd {
+  background: var(--page2); border: 1px solid var(--line2);
+  border-radius: 4px; padding: 1px 5px;
+  font-size: 10px; color: var(--ink4);
+}
+
+#check-btn {
+  display: flex; align-items: center; gap: 7px;
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  padding: 9px 20px; border-radius: 8px;
+  background: var(--ink); color: #fff;
+  border: none; cursor: pointer;
+  transition: all .16s;
+}
+#check-btn:hover:not(:disabled) {
+  background: var(--teal);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(13,115,119,.3);
+}
+#check-btn:disabled {
+  opacity: .45; cursor: not-allowed;
+  transform: none; box-shadow: none;
+}
+#check-btn .spin {
+  width: 13px; height: 13px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.3);
+  border-top-color: #fff;
+  animation: spin .6s linear infinite;
+  display: none; flex-shrink: 0;
+}
+#check-btn.running .spin { display: block; }
+#check-btn.running .btn-label { display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── The actual textarea + highlight layer ── */
